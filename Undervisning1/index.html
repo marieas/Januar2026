@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min nettside</title>
+    <style>
+        .backgrd{
+            display: grid; 
+            background-color: burlywood;
+            font-size: 10px;     
+            border: 5px solid green;
+            box-shadow: 10px 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--grid/flex-->
+    <h1 onclick="changeInnerHTML()" id="minoverskrift" style="color: pink;">Overskrift</h1> <!--inline style-->
+    <div id="minDiv" class="backgrd"> <!--style med klasse-->
+            <h2>Overskrift</h2>
+            <h6>Overskrift</h6>
+            <p>Hvis man skal skrive tekst</p>
+            <i>italic tekst</i>
+            <strong>her er det fet tekst</strong>
+            <br>
+    </div>
+    <a href="https://www.google.com">Lenke til noe</a>
+    <ul>
+        <li>pedantisk</li>
+        <li>ikke pedantisk</li>
+        <li>ikke pedantisk</li>
+        <li>ikke pedantisk</li>
+        <li>ikke pedantisk</li>
+    </ul>
+    <button onclick="buttonClicked()">Trykk på meg!</button>
+    <script>
+      
+        function buttonClicked(){
+            document.getElementById("minoverskrift").style.color = 'hotpink';
+            document.getElementById("minoverskrift").style.fontSize = '100px';
+           
+        }
+        function changeInnerHTML(){
+            document.getElementById("minDiv").innerHTML = '<p>Nå har jeg endret innhold </p>'
+              document.getElementById("minDiv").classList.remove('backgrd')
+        }
+    </script>
+</body>
+
+</html>
