@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="myName">Her kommer det et navn</p>
+    <p id="myAge">Her kommer det en alder</p>
+    <button onclick="changeTekstWithNameAndAge()">Oppdater tekst med navn og alder</button>
+    <br>
+    <br>
+
+    <div id="myNumber"></div>  
+    <button onclick="addOne()">Pluss på 1</button>
+    <button onclick="subtractTwo()">Trekk fra 2</button>
+    <button onclick="multiplyByFive()">Gange med 5</button>
+    <button onclick="divideByTwo()">Dele på 2</button>
+
+    <script>
+        //Pause til 10.55
+        let name = 'Marie'; //string
+        let text = 'Tallet mitt: ';
+        let alder;
+        let hasEatenBreakfast = false; //bool kan kun være true eller false
+        let decimalTall = 13.5; 
+        let tall = 1;
+
+        alder = 25; //number (int)
+        console.log(name) //skriver ut i console i nettleser (F12 / høyreklikk -> inspiser)
+        updateNumber();
+        function updateNumber(){
+            document.getElementById('myNumber').innerHTML = text + tall;
+        }
+        function changeTekstWithNameAndAge(){
+            document.getElementById('myName').innerHTML = name;
+            document.getElementById('myAge').innerHTML = alder;
+        }
+        function addOne(){
+            tall++; //Øker et tall med 1
+            // tall = tall + 1; //Øker et tall med 1
+            updateNumber()
+        }
+        function subtractTwo(){
+           tall = tall - 2; 
+           //tall -= 2; //trekker 2 fra tallet
+            updateNumber()
+        }
+        function multiplyByFive(){
+            tall *= 5; //Ganger med 5
+            //tall = tall * 5;
+            updateNumber()
+        }
+
+        function divideByTwo(){
+            tall /= 2; //deler på 
+            updateNumber()
+        }
+    </script>
+</body>
+</html>
