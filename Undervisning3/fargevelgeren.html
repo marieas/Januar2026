@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="mytext">Her er teksten min!</p>
+    <!--Pause til 10.23
+    <button onclick="changeColorToRed()">Rød</button>
+    <button onclick="changeColorToBlue()">Blå</button>
+    <button onclick="changeColorToGreen()">Grønn</button>-->
+    <button onclick="changeColor('red','100px')">Rød</button>
+    <button onclick='changeColor("blue","30px")'>Blå</button>
+    <button onclick="changeColor('green','50px')">Grønn</button>
+    
+    <script>      
+        /* Gjentakende kode i flere funksjoner -> 
+        kan erstattes med et parameter som kan 
+        ha varierende verdi istedenfor fastsatt
+
+        function changeColorToRed(){
+            document.getElementById('mytext').style.color = "red";
+        }
+        function changeColorToBlue(){
+            document.getElementById('mytext').style.color = "blue";
+        }
+        function changeColorToGreen(){
+            document.getElementById('mytext').style.color = "green";
+        }*/
+        function changeColor(newColor, newFontSize){
+             document.getElementById('mytext').style.color = newColor
+             document.getElementById('mytext').style.fontSize = newFontSize;
+        }
+
+        function addFive(param){
+            let result = 0
+            let five = 5;
+
+            result = param + five
+            console.log(result);
+        }
+
+        /*
+        fyllBensin(95blyfri)
+        fyllBensin(diesel)
+        function fyllBensin(drivstoff){
+
+        }*/
+
+        
+    </script>
+</body>
+</html>
