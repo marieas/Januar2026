@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Pause til 11.11 */
+        let minimumAge = 18;
+        let looksUnder25 = true;
+        let timeOfArrival = 17; 
+        let beerTimeClosed = 20; //Ikke lov å kjøpe etter kl 20
+        let ageOnID = 17;
+
+        function canPersonBuyBeer(){
+            //er ølsalget åpent?
+            if(timeOfArrival <= beerTimeClosed){
+                //ser personen yngre ut enn 25?
+                if(looksUnder25 == true){
+                    //Ja - vise leg
+                    //leg - må være over 18
+                    if(ageOnID < minimumAge){
+                        //kaste ut av butikk for ung!
+                    }
+                    else{
+                        //gyldig leg - får lov til å kjøpe 
+                    }
+                }
+                else{
+                    //får kjøpe - ser gammel ut og trenger ikke vise legitimasjon :(
+                }
+            }
+            else{
+                //Får ikke kjøpe - utenfor åpningstid!
+            }                
+        }
+
+    </script>
+</body>
+</html>

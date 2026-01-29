@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let userName = '';
+        let password = '';
+        let userAccount = 1000000;
+       
+        let correctPassword = 'Bjarne123';
+        let correctUsername = 'BjarneNilsen';
+        let html = '';
+
+        logInScreen()
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML =/*HTML*/ `
+            <p>${html}</p>                  
+            `
+        }
+        /*  <button onclick="buttonClicked(this)">1</button>
+            <button onclick="buttonClicked(this)">2</button>  */
+
+        function setUserName(userInput){
+            userName = userInput;
+        }
+
+         function setPsw(userPsw){
+            password = userPsw;
+        }
+
+        function logIn(){
+            if(userName == correctUsername && password == correctPassword){
+                html = `<p>Hei og velkommen ${userName}</p>
+                        <p>Din saldo er ${userAccount}</p>
+                        `
+            }
+            else{
+                console.log('Feil brukernavn eller pa')
+                html += `<p>Du har skrevet feil brukernavn eller passord</p>`
+            }
+            updateView()
+        }
+
+        function logInScreen(){
+            html = `username: <input onchange="setUserName(this.value)">
+            <br>
+            password: <input onchange="setPsw(this.value)" type="password">
+            <br>
+            <button onclick="logIn()">Log in</button>`
+        }
+
+        function buttonClicked(btnClicked){
+            console.log(btnClicked)
+            let mathSum = 0;
+            mathSum = mathSum + Number(btnClicked.innerHTML)
+            console.log(mathSum)
+            btnClicked.style.color = 'blue';
+        }
+    </script>
+</body>
+</html>
