@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+  
+    <div id="tekstBox"></div>   
+    <script>
+        let trollLife = 200;
+        let stamina = 20;
+        let coins = 0;
+        let name = 'Bjarne';
+        let strength = 30;
+        let weapon = ''
+        let gameInfo = ''
+        let life = 100;
+
+      updateView()
+        function updateView(){
+            document.getElementById('tekstBox').innerHTML = /*HTML*/`
+            Velkommen ${name}
+            <br>
+            <img class="img" src="troll.jpg">
+            <br>
+            ${drawStats()}           
+            ${drawButtons()}
+            <p>${gameInfo}</p>
+            `
+        }
+
+        function drawStats(){
+            return `
+            My life: ${life}
+            TrollLife: ${trollLife}
+            Coins: ${coins}
+            Energy: ${stamina}
+            Strength: ${strength}
+            Weapon: ${weapon}
+            ` 
+        }
+
+        /*
+        <button onclick="pickUpWeapon('axe',100)">Pick up axe</button>
+        <button onclick="pickUpWeapon('hammer',10)">Pick up Hammer</button>
+        <button onclick="pickUpWeapon('chainsaw',1000)">Pick up Motorsag</button>
+        */
+        function drawButtons(){
+            return `<button onclick="pickUpCoins()">Pick up 10 coins</button>
+            <button onclick="hitTroll()">Hit troll</button>
+            <button onclick="pickUpRandomWeapon()">Pick up weapon</button>           
+            <button onclick="eatFruit('strawberry',10)">Spis jordbær</button>
+            <button onclick="eatFruit('cloudberry',100)">Spis multer</button>`             
+        }
+
+        function pickUpCoins(){
+            let randomCoinAmount = Math.floor(Math.random() *10);
+            coins += randomCoinAmount;
+            gameInfo = `Du har plukket opp ${randomCoinAmount} coins`
+            updateView();
+        }
+        function hitTroll(){
+            trollLife -= strength;
+            life -= getRandomTrollStrength();
+            if(trollLife <= 0){
+                gameInfo = 'Du vant'
+            }
+            else if(life <= 0){
+                gameInfo = 'Trollet drepte deg, du tapte'
+            }
+            stamina -= 1;
+            updateView();
+        }
+
+        function getRandomTrollStrength(){
+            return Math.floor(Math.random() * 40) + 10;
+        }
+        function eatFruit(fruit,newStamina){
+            stamina += newStamina
+            gameInfo = `Du har spist ${fruit} og har nå økt energien med ${newStamina}`
+            updateView()
+        }
+
+        function pickUpRandomWeapon(){
+            //get random weapon name           
+            let weaponName = getRandomWeaponName();
+
+            //get random weapon strength
+            let randomStrength = getRandomStrength();
+
+            pickUpWeapon(weaponName,randomStrength)
+        }
+
+        function getRandomStrength(){
+            return Math.floor(Math.random() * 1000)+ 1
+        }
+
+        function getRandomWeaponName(){  
+            let randomNumber = Math.floor(Math.random() * 3)       
+            if(randomNumber == 0){
+                return 'axe'
+            }
+            else if(randomNumber == 1){
+              return 'hammer'
+            }
+            else{
+                return 'chainsaw'
+            }
+            
+        }
+
+        function pickUpWeapon(newWeapon, newStrength){
+            weapon = newWeapon;
+            strength = newStrength;
+            updateView();
+        }
+    </script>
+</body>
+</html>

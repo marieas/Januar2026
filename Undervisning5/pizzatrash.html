@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let pizzaStatus = 'You havent ordered any pizza yet!'
+        let hasOrdered = false;
+        // Pause til 10.31;
+        /* Pizzabakeren 
+        // hvis man ikke har bestilt skal man ikke vise noe;
+        // Hvis man har bestilt pizza lager kokken mat,
+        // Han som tar i mot bestilling har ansvar for deig, han roper opp pizzatype
+        // En annen kollega har ansvar for at grønnsaker er hakket opp
+        // Når pizzan er ferdig skal man returnere et bilde av en pizza, Og tekst om hva som er toppings*/
+        updateView()
+        function updateView(){
+            let html = ``      
+            if(hasOrdered == false)   {
+                html = orderScreen(); 
+            }   else{
+                html = `${pizzaStatus}`
+            }
+                
+            document.getElementById('app').innerHTML = html;
+        }
+
+        function orderScreen(){
+            return `${pizzaStatus} <button onclick="makePizza()">Order Pizza</button>` 
+        }
+
+        function makePizza(){
+            hasOrdered = true;
+            pizzaStatus = `We have a pizza with ${makePizzaDough()}, 
+            ${choppingVegetables()} and ${addToppings()} `
+            updateView()
+        }
+
+        function makePizzaDough(){
+            //Her lager han ene karen pizzabunn!
+            return "Italian style pizza base";
+        }
+
+        function choppingVegetables(){
+            return "chopped onions and paprika";
+        }
+
+        function addToppings(){
+            return "Meatballs";
+        }
+    </script>
+</body>
+</html>
