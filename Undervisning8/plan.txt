@@ -1,0 +1,11 @@
+Introduksjon til løkker
+Hvorfor er løkker nyttig? Intro
+2.(Jalla kalkulator)
+
+3. Få en robot til å "gå" 🤖
+- input felt med hvor mange "skritt" roboten skal ta
+- printe ut for hvert skritt han tar
+
+4. Dele opp en tekst i karakterer
+
+EVT (5. Introduksjon til datasamling)

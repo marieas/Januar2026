@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let num1 = 0;
+        let num2 = 0;
+        let operator = '';
+        let sum = 0;
+        //while PAUSE Til 11.10!
+        //while(pause == true){
+         // drikkKaffe(); 
+        //}
+       /* while(number <10){
+            console.log( `Vi er på(runde) nummer ${number} i løkken`)
+            number++;
+        }
+        //for  //definer tellervariabel,
+        //  definer betingelse,
+        //  hvordan skal telleren oppdatere seg per runde?
+        for(let counter = 10; counter>0; counter--){
+            console.log( `Vi er på(runde) nummer ${counter} i løkken`)
+        }
+        //foreach*/
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${drawNumberButtons()}
+            <br>
+            <button onclick="setOperator(this.innerHTML)">+</button>
+            <button onclick="setOperator(this.innerHTML)">-</button>
+            ${num1} ${operator} ${num2}
+            <div onclick="sumOfNumbers()">=</div>
+            ${sum}
+            ` 
+        }
+
+        /*gammelt
+            <button onclick="setNumber(this.innerHTML)">0</button>
+            <button onclick="setNumber(this.innerHTML)">1</button>
+            <button onclick="setNumber(this.innerHTML)">2</button>
+            <button onclick="setNumber(this.innerHTML)">3</button>
+            <button onclick="setNumber(this.innerHTML)">4</button>
+            <button onclick="setNumber(this.innerHTML)">5</button>
+            <button onclick="setNumber(this.innerHTML)">6</button>
+            <button onclick="setNumber(this.innerHTML)">7</button>
+            <button onclick="setNumber(this.innerHTML)">8</button>
+            <button onclick="setNumber(this.innerHTML)">9</button>
+        */
+
+        function drawNumberButtons(){
+            //0
+            let html =''
+
+            for(let i = 0; i<=9; i++){
+                 html += `<button onclick="setNumber(this.innerHTML)">${i}</button>`
+            }
+            return html;
+        }
+
+        function setNumber(number){
+            if(operator != ''){
+                num2 = parseInt(number)
+            }else{
+                num1 = parseInt(number);
+            }
+            updateView()
+        }
+
+        function setOperator(value){
+            operator = value;
+             updateView()
+        }
+
+        function sumOfNumbers(){
+            if(operator == '+'){
+                sum = num1 + num2;
+            }
+            else if(operator == '-'){
+                sum = num1 - num2;
+            }
+            else{
+                //feilmelding
+            }
+             updateView()
+        }
+
+    </script>
+</body>
+</html>
