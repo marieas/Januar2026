@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let starWarsCharacters = ['Leia','Jabba','Han Solo','ChewBacca','Yoda']; //Deklarasjon av array med verdier
+                                //  0       1      2
+        let animals = [] // deklarasjon tomt array.
+        let name = 'Bjarne' 
+                  //012345
+        //PAUSE TIL 10.30
+
+        //Hente ut fra array - trenger vi å vite hvilken index vi skal hente ut fra
+        function getSpesicificChar(){
+            console.log(starWarsCharacters[1])
+        }
+
+        function addToArray(nameOfCharacter){
+            starWarsCharacters.push(nameOfCharacter) //legger til nytt element på slutten av arrayet
+            console.table(starWarsCharacters)
+        }
+
+        function deleteLastFromArray(){
+            console.table(starWarsCharacters)
+            starWarsCharacters.pop(); //Fjerner bare siste element fra arrayet
+            console.table(starWarsCharacters)
+        }
+
+        function deleteSpecificFromArray(){
+            console.table(starWarsCharacters)
+            starWarsCharacters.splice(3,1)//hvilken index ønsker du å slette fra? , Hvor mange elementer ønsker du å slette?
+            console.table(starWarsCharacters)
+        }
+
+        function changeSpesific(){
+            console.table(starWarsCharacters)
+            starWarsCharacters[0] = 'Princess Leia'
+            console.table(starWarsCharacters)
+        }
+    </script>
+</body>
+</html>

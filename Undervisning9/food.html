@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+  
+       
+    <script>
+        //Pause til 11.
+        let foodDishes = ['Taco','Pølse','Pizza','Kebab','Gyros','Cecar Salat'] //length 6
+                    //index 0,    1     ,  2    , 3     , 4     , 5
+        let selectedDinner = ''
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = `    
+            ${drawFoodButtons()}
+                <div>Add Food dish: 
+                    <input onchange="addFoodDish(this.value)">
+                    <button onclick="updateView()">Submit</button>
+                    <button onclick="getRandomDish()">Get Random dinner!</button>
+                    ${selectedDinner}
+                </div>`
+        }
+
+        function getRandomDish(){
+            let rand = Math.floor(Math.random() * foodDishes.length)
+            selectedDinner = foodDishes[rand];
+            updateView()
+        }
+
+        function addFoodDish(newFood){
+            foodDishes.push(newFood)
+        }
+
+        function drawFoodButtons(){
+            let html = ``
+
+            for(let counter = 0; counter<= foodDishes.length-1; counter++){
+                html += `<button onclick="removeFromSelection(${counter})">${foodDishes[counter]} x</button>`
+            }
+            return html;
+        }
+
+        function removeFromSelection(index){
+           foodDishes.splice(index,1)
+           updateView()
+        }
+
+    </script>
+</body>
+</html>
